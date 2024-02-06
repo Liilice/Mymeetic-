@@ -73,6 +73,7 @@
                 <input type="search" name="Localisation" id="Localisation">
                 <input type="search" name="Loisir" id="Loisir">
                 <input type="search" name=" Tranche d’âge" id="age">
+                <input type="submit" value="Rechercher" />
             </form>
             <div>
                 <p>Afficher les resultat et carroussel</p>
