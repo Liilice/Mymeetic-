@@ -7,6 +7,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         <script><?php include "../assets/js/login.js" ?></script>
         <script src="https://kit.fontawesome.com/96249701bf.js" crossorigin="anonymous"></script>
+        <title>Document</title>
     </head>
     <body>
       <form action="../model/get_login.php" method="POST">

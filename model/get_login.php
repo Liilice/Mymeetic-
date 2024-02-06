@@ -32,8 +32,8 @@ if(!empty($_POST["email"])&&!empty($_POST["password"])){
                 $statementSession->bindValue(':iduser', $user[0]['id']);
                 $statementSession->execute();
                 $signature = hash_hmac('sha256', $sessionId, 'xiao long bao hao chi');
-                setcookie('session',$sessionId, time() + 60 * 60 * 24 * 30, "", "", false, true);
-                setcookie('signature',$signature, time() + 60 * 60 * 24 * 30, "", "", false, true);
+                setcookie('session',$sessionId, time() + 60 * 60 * 24 * 30, "/", "", false, false);
+                setcookie('signature',$signature, time() + 60 * 60 * 24 * 30, "/", "", false, false);
                 header('Location: ../view/profil.php');
                 exit;
             }else{
