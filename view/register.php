@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style><?php include "../assets/css/register.css" ?></style>
+    <style><?php include "./assets/css/register.css" ?></style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script><?php include "../assets/js/register.js" ?></script>
+    <script><?php include "./assets/js/register.js" ?></script>
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="POST">
+    <form action="./view/login.php" method="POST">
         <h1>Inscrivez-vous dès maintenant !</h1>
         <div class="labelInput">
             <label for="genre">Genre</label><br />
@@ -51,15 +51,17 @@
         <div class="labelInput">
             <label for="loisirs">Loisirs</label>
             <select name="loisir" id="loisir" class="containerGenre">
-                <?php foreach($loisirArray as $key => $value):?>
-                    <?php foreach($value as $key2 => $value2):?>
-                        <option value="<?=$value2?>"><?=$value2?></option>
-                    <?php endforeach; ?>
-                <?php endforeach;?>
+                <option value="Sport">Sport</option>
+                <option value="Lecture">Lecture</option>
+                <option value="Informatique">Informatique</option>
+                <option value="Jeux vidéo">Jeux vidéo</option>
+                <option value="Cinema">Cinema</option>
+                <option value="Cuisine">Cuisine</option>
             </select>
             <!-- <p class="textError" id="loisirs"></p> -->
         </div>
-        <button class="btn btn-danger">S'inscrire</button>
+        <input type="submit" name="envoyer" class="btn btn-danger" id="submit" value="S'inscrire" required>
+        <!-- <button class="btn btn-danger">S'inscrire</button> -->
     </form>
 </body>
 </html>

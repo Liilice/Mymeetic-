@@ -6,6 +6,10 @@ const ERROR_PASSWORD = "Mot de passe incorrect";
 const ERROR_EMAIL_INVALID = "Veuillez entrer une email valide";
 const ERROR_EMAIL = "Email inexistant";
 const ERROR_PASSWORD_CONFIRM = "Mot de passe différent";
+$error = [
+    'email' => '',
+    'password' => '',
+];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $_POST = filter_input_array(INPUT_POST, [
         'email' => FILTER_SANITIZE_FULL_SPECIAL_CHARS,
@@ -13,10 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ]);
     $email = $_POST["email"] ?? '';
     $email = $_POST["password"] ?? '';
-    $error = [
-        'email' => '',
-        'password' => '',
-    ];
     if (!$email )  {
         $error['email'] = ERROR_REQUIRED; 
     }elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)){
