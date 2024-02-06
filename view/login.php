@@ -9,7 +9,7 @@
         <script src="https://kit.fontawesome.com/96249701bf.js" crossorigin="anonymous"></script>
     </head>
     <body>
-      <form method="POST">
+      <form action="../model/get_login.php" method="POST">
         <h1>Se connecter</h1>
         <div class="social-container">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -18,6 +18,7 @@
         </div>
         <input type="email" placeholder="Email" name="email" id="email" required/>
         <p class="textError" id="emaill"></p>
+        <?= $error['email'] ? '<p class="textError">' . $error['email'] . '</p>' : "" ?>
         <input type="password" name="password" placeholder="Mot de passe" id="password" required/>
         <p class="textError" id="mdp"></p>
         <a href="./view/login.php">Créer un compte</a>
