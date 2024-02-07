@@ -77,3 +77,55 @@
     ?>
     
  
+
+    
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style><?php include "../assets/css/profil.css" ?></style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/96249701bf.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <a href="/">My meetic</a>
+        <ul class="header_ul">
+            <li>
+                <a href="./homepage.php">Page d'accueil</a>
+            </li>
+            <li>
+                <a href="/">Mon profil</a>
+            </li>
+            <li>
+                <a href="../model/logout.php">Déconnexion</a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <aside>
+            <div>
+                <h1></h1>
+                <img src="" alt="">
+                <h3></h3>
+                <h4></h4>
+                <h5></h5>
+            </div>
+            <div>
+                <h2>Mes informations</h2>
+                <ul>
+                    <li>Nom</li>
+                    <li>Prenom</li>
+                    <li>Email</li>
+                    <li>Date de naissance</li>
+                    <li>Ville</li>
+                    <li>Mot de passe</li>
+                    <li>Ajouter un loisir</li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+</body>
+</html> -->

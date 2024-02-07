@@ -1,29 +1,3 @@
-<?php 
-    // require_once("../model/security.php");
-    // $currentUser = is_login();
-    // // print_r($currentUser);
-    $sessionId = $_COOKIE['session'];
-    $signature = $_COOKIE['signature'];
-    echo($sessionId).PHP_EOL;
-    echo($signature);
-    // var_dump($_COOKIE);
-    // if($sessionId  && $signature){
-    //     $hash = hash_hmac('sha256', $sessionId, 'xiao long bao hao chi');
-    //     $match = hash_equals($signature, $hash);
-    //     if($match){
-    //      $statementSession = $pdo->prepare('SELECT * FROM session WHERE id_session = :sessionId');
-    //      $statementSession->bindValue(':id_session', $sessionId);
-    //      $statementSession->execute();
-    //      $session = $statementSession->fetchAll(PDO::FETCH_ASSOC);
-    //      if($session){
-    //          $statementUser = $pdo->prepare('SELECT * FROM user WHERE id = :id');
-    //          $statementUser->bindValue(':id', $session[0]['id_user']);
-    //          $statementUser->execute();
-    //          $user = $statementUser->fetchAll(PDO::FETCH_ASSOC);
-    //      }
-    //     } 
-    // }
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,48 +9,72 @@
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <a href="/">My meetic</a>
-        <ul>
-            <li>
-                <a href="/">Mon profil</a>
-            </li>
-            <li>
-                <a href="../model/logout.php">Déconnexion</a>
-            </li>
-        </ul>
-    </header>
-    <main>
-        <aside>
-            <div>
-                <img src="" alt="">
-                <h3></h3>
-                <h4></h4>
-                <h5></h5>
+    <main class="container_main">
+        <div class="header">
+            <h3>
+                Account settings
+            </h3>
+            <ul class="header_ul">
+                <li>
+                    <a href="./homepage.php">Page d'accueil</a>
+                </li>
+                <li>
+                    <a href="/">Mon profil</a>
+                </li>
+                <li>
+                    <a href="../model/logout.php">Déconnexion</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container">
+            <div class="aside">
+            <?php 
+                require_once("../model/security.php");
+                $currentUser = is_login();
+            ?>
+                <div>
+                    <img src="../assets/image/avatar_default.webp" alt="avatar_default">
+                    <p><?= $currentUser[0]["nom"] . " ".  $currentUser[0]["prenom"]?></p>
+                </div>
+                <div class="infos">
+                    <h3>Mes informations</h3>
+                    <ul>
+                        <li>Nom : <?=$currentUser[0]["nom"]?></li>
+                        <li>Prenom : <?=$currentUser[0]["prenom"]?></li>
+                        <li>Genre : <?=$currentUser[0]["genre"]?></li>
+                        <li>Email : <?=$currentUser[0]["email"]?></li>
+                        <li>Date de naissance : <?=$currentUser[0]["date_naissance"]?></li>
+                        <li>Ville</li>
+                        <li>Ajouter un loisir</li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <h2>Mes informations</h2>
-                <ul>
-                    <li>Nom</li>
-                    <li>Prenom</li>
-                    <li>Email</li>
-                    <li>Date de naissance</li>
-                    <li>Ville</li>
-                    <li>Mot de passe</li>
-                    <li>Ajouter un loisir</li>
-                </ul>
-            </div>
-        </aside>
-        <div>
-            <form action="">
-                <input type="search" name="Genre" id="Genre">
-                <input type="search" name="Localisation" id="Localisation">
-                <input type="search" name="Loisir" id="Loisir">
-                <input type="search" name=" Tranche d’âge" id="age">
-                <input type="submit" value="Rechercher" />
-            </form>
-            <div>
-                <p>Afficher les resultat et carroussel</p>
+            <div class="center">
+                <h3>Update Account</h3>
+                <form action="">
+                    <div class="labelInput">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" placeholder="Email" id="email" >
+                        <p class="textError" id="emaill"></p>
+                    </div>
+                    <div class="labelInput">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" name="password" placeholder="password" id="password"  >
+                        <p class="textError" id="mdp"></p>
+                    </div>
+                    <div class="labelInput">
+                        <label for="ville">Ville</label>
+                        <input type="text" name="ville" placeholder="ville" id="ville"  >
+                        <p class="textError" id="villee"></p>
+                    </div>
+                    <div class="labelInput">
+                        <label for="loisir">Loisir à ajouter </label>
+                        <input type="text" name="loisir" placeholder="loisir" id="loisir"  >
+                        <p class="textError" id="loisir"></p>
+                    </div>
+                    <button type="button" class="btn btn-primary">Update</button>&nbsp;
+                    <button type="button" class="btn btn-default">Cancel</button>
+                </form>
             </div>
         </div>
     </main>

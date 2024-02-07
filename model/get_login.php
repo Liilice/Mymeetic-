@@ -13,10 +13,6 @@ if(!empty($_POST["email"])&&!empty($_POST["password"])){
     if(!empty($email)&&!empty($password)){
         $statement_user = $pdo->query("SELECT * FROM user WHERE email LIKE '$email';") ;
         $user = $statement_user->fetchAll(PDO::FETCH_ASSOC);
-        // echo '<pre>';
-        // print_r($user);
-        // echo '</pre>';
-        // echo $user[0]["password"];
         if(empty($user)){
             // $error['email'] = ERROR_EMAIL; 
             header("Location: ../view/login.php");

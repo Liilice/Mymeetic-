@@ -17,6 +17,7 @@ CREATE TABLE user (
     date_naissance  DATE            NOT NULL,
     genre           VARCHAR(255)    NOT NULL,
     password        VARCHAR(255)    NOT NULL,
+    code_postal     INT             NOT NULL,
     PRIMARY KEY (id)
 );
 

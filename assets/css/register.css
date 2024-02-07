@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 /* LES BASES */
 * {
   margin: 0;
@@ -5,11 +6,9 @@
   box-sizing: border-box;
 }
 :root {
-  --primary: #8e44ad;
   --dark: #2c3e50;
   --background-light: #ecf0f1;
   --text-color: #444;
-  --text-color-light: #fff;
   --box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   --border: 1px solid #eee;
@@ -17,96 +16,83 @@
   font-size: 62.5%;
 }
 body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.6rem;
+  margin: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  background: linear-gradient(36deg, #26b4ff, #ff7675);
 }
 h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-align: center;
   margin-bottom: 2rem;
-}
-h2 {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-h3 {
-  font-size: 1.5rem;
 }
 p {
   margin-top: 0.5rem;
   font-size: 1.5rem;
   line-height: 2.5rem;
 }
-ul {
-  list-style: none;
-}
-li {
-  font-size: 1.6rem;
-}
 a {
   text-decoration: none;
   /* font-size: 1.6rem; */
   color: var(--dark);
 }
-img {
-  max-width: 100%;
+.container_main {
+  width: 60rem;
+  height: 100vh;
 }
 form {
   margin: 1rem 0rem 2rem 0rem;
 }
-.genre {
-  max-width: fit-content;
-}
 .containerGenre {
   width: 25rem;
+}
+.genre {
+  max-width: fit-content;
 }
 .labelInput {
   margin-bottom: 2rem;
   display: flex;
   flex-direction: row;
 }
-input {
-  width: 25rem;
-  padding: 0.5rem;
-}
+input,
 select {
   width: 25rem;
-  padding: 0.6rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.6rem 1rem;
+  background-color: #dff9fb;
 }
 label {
   font-size: 1.5rem;
   margin-right: 3rem;
   width: 10rem;
 }
-.d {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
 .textError {
   color: var(--danger);
+  margin-left: 1rem;
 }
 .btn {
   background-color: white;
   font-weight: 700;
-  color: var(--text-color);
+  color: black;
   font-size: 1.6rem;
   border: 0;
   padding: 10px 15px;
   cursor: pointer;
-  border-radius: 3px;
-  margin: 0 5px;
-  box-shadow: var(--box-shadow);
-}
-.btn-primary {
-  background-color: var(--primary);
-  color: var(--text-color-light);
+  border-radius: 5rem;
+  margin: 0.5rem 0rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px;
 }
 .btn-danger {
-  background-color: var(--danger);
-  color: var(--text-color-light);
-  cursor: pointer;
+  background-color: #ff7675;
+  color: #fff;
+}
+.btn-danger:hover {
+  background-color: #f74a4a;
+  transition: 0.4s ease-out;
 }
