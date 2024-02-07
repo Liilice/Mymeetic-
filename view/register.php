@@ -63,11 +63,11 @@
                     <option value="Jeux vidéo">Jeux vidéo</option>
                     <option value="Cinema">Cinema</option>
                     <option value="Cuisine">Cuisine</option>
+                    <option value="Cuisine">Danse</option>
                 </select>
                 <!-- <p class="textError" id="loisirs"></p> -->
             </div>
             <input type="submit" name="envoyer" class="btn btn-danger" id="submit" value="S'inscrire" required>
-            <!-- <button class="btn btn-danger">S'inscrire</button> -->
         </form>
     </main>
 </body>

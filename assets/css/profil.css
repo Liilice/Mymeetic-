@@ -58,11 +58,6 @@ img {
 }
 
 .container_main {
-  /* background-color: rgba(150, 111, 144, 0.68);
-  -webkit-backdrop-filter: blur(15px);
-  backdrop-filter: blur(15px);
-  border: 3px solid rgba(155, 255, 255, 0.16);
-  border-radius: 30px; */
   width: 80rem;
   height: 100vh;
 }
@@ -101,7 +96,7 @@ img {
   justify-content: center;
 }
 .labelInput {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   display: flex;
   flex-direction: row;
 }
@@ -137,4 +132,7 @@ label {
 .btn-default:hover {
   background-color: rgb(134, 134, 138);
   transition: 0.4s ease-out;
+}
+.textError {
+  color: red;
 }

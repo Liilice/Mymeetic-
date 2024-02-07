@@ -14,7 +14,7 @@ function is_login(): array | false{
             $session = $statementSession->fetchAll(PDO::FETCH_ASSOC);
             if(!empty($session)){
                 $user_id = $session[0]['id_user'];
-                $statementUser = $pdo->query("SELECT * FROM user WHERE id = $user_id;");
+                $statementUser = $pdo->query("SELECT * FROM user JOIN user_loisir ON user.id = user_loisir.id_user WHERE id = $user_id;");
                 $user = $statementUser->fetchAll(PDO::FETCH_ASSOC);
             }
         } 

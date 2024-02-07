@@ -6,6 +6,7 @@
     <style><?php include "../assets/css/profil.css" ?></style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/96249701bf.js" crossorigin="anonymous"></script>
+    <script><?php include "../assets/js/update_info.js"?></script>
     <title>Document</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
                     <a href="./homepage.php">Page d'accueil</a>
                 </li>
                 <li>
-                    <a href="/">Mon profil</a>
+                    <a href="./profil.php">Mon profil</a>
                 </li>
                 <li>
                     <a href="../model/logout.php">Déconnexion</a>
@@ -44,35 +45,35 @@
                         <li>Genre : <?=$currentUser[0]["genre"]?></li>
                         <li>Email : <?=$currentUser[0]["email"]?></li>
                         <li>Date de naissance : <?=$currentUser[0]["date_naissance"]?></li>
-                        <li>Ville</li>
-                        <li>Ajouter un loisir</li>
+                        <li>Code Postal : <?=$currentUser[0]["code_postal"]?></li>
+                        <li>Loisir :  <?=$currentUser[0]["name"]?></li>
                     </ul>
                 </div>
             </div>
             <div class="center">
                 <h3>Update Account</h3>
-                <form action="">
+                <form action="" method="POST">
                     <div class="labelInput">
                         <label for="email">Email</label>
                         <input type="email" name="email" placeholder="Email" id="email" >
-                        <p class="textError" id="emaill"></p>
                     </div>
+                    <p class="textError" id="emaill"></p>
                     <div class="labelInput">
                         <label for="password">Mot de passe</label>
                         <input type="password" name="password" placeholder="password" id="password"  >
-                        <p class="textError" id="mdp"></p>
                     </div>
+                    <p class="textError" id="mdp"></p>
                     <div class="labelInput">
-                        <label for="ville">Ville</label>
-                        <input type="text" name="ville" placeholder="ville" id="ville"  >
-                        <p class="textError" id="villee"></p>
+                        <label for="ville">Code Postal</label>
+                        <input type="text" name="code_postal" placeholder="ville" id="ville"  >
                     </div>
+                    <p class="textError" id="villee"></p>
                     <div class="labelInput">
                         <label for="loisir">Loisir à ajouter </label>
                         <input type="text" name="loisir" placeholder="loisir" id="loisir"  >
-                        <p class="textError" id="loisir"></p>
                     </div>
-                    <button type="button" class="btn btn-primary">Update</button>&nbsp;
+                    <p class="textError" id="loisirr"></p>
+                    <button type="button" class="btn btn-primary" id="submit">Update</button>
                     <button type="button" class="btn btn-default">Cancel</button>
                 </form>
             </div>
