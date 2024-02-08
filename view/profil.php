@@ -46,13 +46,23 @@
                         <li>Email : <?=$currentUser[0]["email"]?></li>
                         <li>Date de naissance : <?=$currentUser[0]["date_naissance"]?></li>
                         <li>Code Postal : <?=$currentUser[0]["code_postal"]?></li>
-                        <li>Loisir :  <?=$currentUser[0]["name"]?></li>
+                        <li>Loisir :
+                            <ul>
+                                <?php foreach($currentUser as $key => $value) :?>
+                                    <?php foreach($value as $ke => $valu) :?>
+                                        <?php if($ke === "name") :?>
+                                            <li class="end"><?=$valu?></li>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+                                <?php endforeach; ?>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="center">
                 <h3>Update Account</h3>
-                <form action="" method="POST">
+                <form action="../model/update_info.php" method="POST">
                     <div class="labelInput">
                         <label for="email">Email</label>
                         <input type="email" name="email" placeholder="Email" id="email" >
@@ -73,8 +83,9 @@
                         <input type="text" name="loisir" placeholder="loisir" id="loisir"  >
                     </div>
                     <p class="textError" id="loisirr"></p>
-                    <button type="button" class="btn btn-primary" id="submit">Update</button>
-                    <button type="button" class="btn btn-default">Cancel</button>
+                    <input type="submit" name="envoyer" class="btn btn-primary" id="submit" value="Update" required>
+                    <!-- <button type="button" class="btn btn-primary" id="submit">Update</button> -->
+                    <!-- <button type="button" class="btn btn-default">Cancel</button> -->
                 </form>
             </div>
         </div>

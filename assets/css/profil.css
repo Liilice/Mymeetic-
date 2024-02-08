@@ -109,6 +109,9 @@ label {
   /* margin-right: 1rem; */
   width: 15rem;
 }
+.end {
+  margin-left: 5rem;
+}
 .btn {
   background-color: white;
   font-weight: 700;

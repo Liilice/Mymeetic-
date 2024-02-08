@@ -6,11 +6,11 @@
         $statement->execute();
         $session = $statement->fetchAll(PDO::FETCH_ASSOC);
         if(!empty($session)){
-            setcookie('session', time() - 1);
             unset($_COOKIE['session']);
-            setcookie('signature', time() - 1);
+            setcookie('session', time() - 1);
             unset($_COOKIE['signature']);
-            header("Location: /index.php");
-            exit;
+            setcookie('signature', time() - 1);
+            header("Location: ../index.php");
+            // exit;
         }
     }
