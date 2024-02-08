@@ -65,9 +65,9 @@
                     <p class="textError" id="mdp"></p>
                     <div class="labelInput">
                         <label for="ville">Code Postal</label>
-                        <input type="text" name="code_postal" placeholder="ville" id="ville"  >
+                        <input type="number" name="code_postal" placeholder="ville" id="code_postal"  >
                     </div>
-                    <p class="textError" id="villee"></p>
+                    <p class="textError" id="postal"></p>
                     <div class="labelInput">
                         <label for="loisir">Loisir à ajouter </label>
                         <input type="text" name="loisir" placeholder="loisir" id="loisir"  >

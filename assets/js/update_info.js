@@ -1,9 +1,6 @@
 $(document).ready(function () {
   $("#submit").on("click", function (event) {
     let email = $("#email").val();
-    let password = $("#password").val();
-    let loisir = $("#loisir").val();
-    let code_postal = $("#ville").val();
     if (!email) {
       event.preventDefault();
       $("#emaill").text("Veuillez remplir le champ");
@@ -13,6 +10,8 @@ $(document).ready(function () {
     } else {
       $("#emaill").remove();
     }
+
+    let password = $("#password").val();
     if (!password) {
       event.preventDefault();
       $("#mdp").text("Veuillez remplir le champ");
@@ -24,23 +23,25 @@ $(document).ready(function () {
     } else {
       $("#mdp").remove();
     }
+
+    let code_postal = $("#code_postal").val();
     if (!code_postal) {
       event.preventDefault();
-      $("#villee").text("Veuillez remplir le champ");
+      $("#postal").text("Veuillez remplir le champ");
     } else if (code_postal.length !== 5) {
       event.preventDefault();
-      $("#villee").text("Veuillez entrer un code postal à 5 numéro.");
-    } else if (isInteger(code_postal) === false) {
-      event.preventDefault();
-      $("#villee").text(
-        "Veuillez entrer un code postal à 5 numéro en chiffre."
-      );
+      $("#postal").text("Veuillez entrer un code postal à 5 numéro.");
     } else {
-      $("#villee").remove();
+      $("#postal").remove();
     }
+
+    let loisir = $("#loisir").val();
     if (!loisir) {
       event.preventDefault();
       $("#loisirr").text("Veuillez remplir le champ");
+    } else if (loisir.includes(",") || loisir.includes(" ")) {
+      event.preventDefault();
+      $("#loisirr").text("Veuillez remplir qu'un seul loisir a la fois.");
     } else {
       $("#loisirr").remove();
     }
