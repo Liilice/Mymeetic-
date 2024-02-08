@@ -25,21 +25,8 @@ if(!empty($_POST["email"])&&!empty($_POST["password"])&&!empty($_POST["loisir"])
             $statement_update_password = $pdo->query("UPDATE user SET code_postal = $code_postal WHERE id = $session_id_user;");
 
             $statement_loisir = $pdo->query("INSERT INTO user_loisir(id_user, name) VALUES($session_id_user, '$loisir');");
-            $statementUser = $pdo->query("SELECT * FROM user JOIN user_loisir ON user.id = user_loisir.id_user WHERE id = $session_id_user;");
-            $user = $statementUser->fetchAll(PDO::FETCH_ASSOC);
-            echo "<pre>";
-            print_r($user);
-            echo "</pre>";
-            foreach($user as $k => $v){
-                // foreach($v as $k2 => $v2){
-                //     if($k2 == "name"){
-                //         echo $user[$k2];
-                //     }
-                // }
-                echo $v;
-            }
-            // header("Location: ../view/login.php");
-            // exit;
+            header("Location: ../view/homepage.php");
+            exit;
         }
 }
 }

@@ -93,3 +93,13 @@ foreach($Array as $key => $value){
         }
     }
 }
+
+<?php foreach($value as $ke => $valu) :?>
+    <?php foreach($valu as $k => $val) :?>
+        <?php foreach($val as $k => $v) :?>
+            <?php if($k === "name") :?>
+                <li>Loisir : <?=$k["name"]?></li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    <?php endforeach; ?>
+<?php endforeach; ?>
