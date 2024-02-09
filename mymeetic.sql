@@ -25,8 +25,9 @@ CREATE TABLE user_loisir (
     FOREIGN KEY (id_user) REFERENCES user(id)
 );
 CREATE TABLE session (
-    id_session      CHAR(64)        NOT NULL,
+    id_session      INT             NOT NULL AUTO_INCREMENT,
     id_user         INT             NOT NULL,
-    FOREIGN KEY (id_user) REFERENCES user(id)
+    FOREIGN KEY (id_user) REFERENCES user(id),
+    PRIMARY KEY (id_session)
 );
 
