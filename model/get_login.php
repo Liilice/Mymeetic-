@@ -1,6 +1,6 @@
 <?php
-$pdo = require_once("database.php");
-// $MyDatabase = require_once("class.php");
+// $pdo = require_once("database.php");
+$MyDatabase = require_once("class.php");
 const ERROR_PASSWORD = "Mot de passe incorrect";
 const ERROR_EMAIL = "Email inexistant";
 $error = [

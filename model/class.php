@@ -75,7 +75,7 @@ class MyDatabase {
         $this->statementSession->execute();
         $sessionId = $this->pdo->lastInsertId();
         // $signature = hash_hmac('sha256', $sessionId, 'xiao long bao hao chi');
-        setcookie('session',$sessionId, time() + 60 * 60 * 24 * 30, "", "", false, true);
+        setcookie('session',$sessionId, time() + 60 * 60 * 24 * 30, "/", "", false, true);
         // setcookie('signature',$signature, time() + 60 * 60 * 24 * 30, "/", "", false, false);
         return;
     }
