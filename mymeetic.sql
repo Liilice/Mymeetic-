@@ -21,7 +21,7 @@ CREATE TABLE user (
 );
 CREATE TABLE user_loisir (
     id_user         INT             NOT NULL,
-    name            VARCHAR(255)    NOT NULL UNIQUE,
+    name            VARCHAR(255)    NOT NULL,
     FOREIGN KEY (id_user) REFERENCES user(id)
 );
 CREATE TABLE session (
