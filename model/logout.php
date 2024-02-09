@@ -1,5 +1,4 @@
 <?php
-    // // $pdo = require_once("database.php");
     $MyDatabase = require_once("class.php");
     $sessionId = $_COOKIE['session'];
     if($sessionId){
