@@ -12,8 +12,7 @@ if(!empty($_POST["genre"])&&!empty($_POST["nom"])&&!empty($_POST["prenom"])&&!em
     if(!empty($genre)&&!empty($nom)&&!empty($prenom)&&!empty($email)&&!empty($birthdate)&&!empty($password)&&!empty($loisir)&&!empty($code_postal)){
         $resultat_check = $MyDatabase->check_email($email);
         if($resultat_check[0]["email"] == $email){
-            echo "Email existe";
-            header("Location: ../view/register.php");
+            header("Location: ../view/error_register_page.php");
             exit;
         }else{
             $MyDatabase->register_user(['email'=>$email,'nom'=>$nom,'prenom'=>$prenom,'genre'=>$genre,'birthdate'=>$birthdate,'password'=>$password,'code_postal'=>$code_postal]);

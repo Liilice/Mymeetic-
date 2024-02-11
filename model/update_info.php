@@ -10,8 +10,7 @@ if(!empty($_POST["email"])&&!empty($_POST["password"])&&!empty($_POST["loisir"])
     if(!empty($email)&&!empty($password)&&!empty($loisir)&&!empty($code_postal)&&!empty($sessionId)){
         $resultat_check = $MyDatabase->check_email($email);
         if($resultat_check[0]["email"] == $email){
-            echo "Email existe";
-            header("Location: ../view/profil.php");
+            header("Location: ../view/error_profil.php");
             exit;
         }else{
             $session_id = $MyDatabase->get_session_id_user($sessionId);
