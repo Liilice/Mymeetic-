@@ -34,8 +34,10 @@
         </form>
         <div class="carousel">
             <div class="carousel-container"></div>
-            <button class="prev btn">Précédent</button>
-            <button class="next btn">Suivant</button>
+            <div class="containerButton">
+                <button class="prev btn">Précédent</button>
+                <button class="next btn">Suivant</button>   
+            </div>
         </div>
     </main>
 </body>
