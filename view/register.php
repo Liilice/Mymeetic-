@@ -45,8 +45,8 @@
                 <p class="textError" id="birthdate"></p>
             </div>
             <div class="labelInput">
-                <label for="code_postal">Code postal</label>
-                <input type="number" name="code_postal" id="code_postal">
+                <label for="code_postal">ville</label>
+                <input type="text" name="code_postal" id="code_postal">
                 <p class="textError" id="postal"></p>
             </div>
             <div class="labelInput">

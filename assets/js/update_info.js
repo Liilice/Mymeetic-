@@ -28,9 +28,6 @@ $(document).ready(function () {
     if (!code_postal) {
       event.preventDefault();
       $("#postal").text("Veuillez remplir le champ");
-    } else if (code_postal.length !== 5) {
-      event.preventDefault();
-      $("#postal").text("Veuillez entrer un code postal à 5 numéro.");
     } else {
       $("#postal").remove();
     }

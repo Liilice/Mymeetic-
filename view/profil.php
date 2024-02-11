@@ -73,7 +73,7 @@
                     <p class="textError" id="mdp"></p>
                     <div class="labelInput">
                         <label for="ville">Code Postal</label>
-                        <input type="number" name="code_postal" placeholder="ville" id="code_postal"  >
+                        <input type="text" name="code_postal" placeholder="ville" id="code_postal"  >
                     </div>
                     <p class="textError" id="postal"></p>
                     <div class="labelInput">
