@@ -46,7 +46,7 @@
                         <li>Genre : <?=$currentUser[0]["genre"]?></li>
                         <li>Email : <?=$currentUser[0]["email"]?></li>
                         <li>Date de naissance : <?=$currentUser[0]["date_naissance"]?></li>
-                        <li>Code Postal : <?=$currentUser[0]["code_postal"]?></li>
+                        <li>Ville : <?=$currentUser[0]["code_postal"]?></li>
                         <?php foreach($currentUser as $key => $value) :?>
                             <?php foreach($value as $ke => $valu) :?>
                                 <?php if($ke === "name") :?>
@@ -72,7 +72,7 @@
                     </div>
                     <p class="textError" id="mdp"></p>
                     <div class="labelInput">
-                        <label for="ville">Code Postal</label>
+                        <label for="ville">Ville</label>
                         <input type="text" name="code_postal" placeholder="ville" id="code_postal"  >
                     </div>
                     <p class="textError" id="postal"></p>
