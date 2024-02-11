@@ -65,7 +65,6 @@
                     <option value="Cuisine">Cuisine</option>
                     <option value="Cuisine">Danse</option>
                 </select>
-                <!-- <p class="textError" id="loisirs"></p> -->
             </div>
             <input type="submit" name="envoyer" class="btn btn-danger" id="submit" value="S'inscrire" required>
         </form>

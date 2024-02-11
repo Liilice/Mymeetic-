@@ -1,6 +1,5 @@
 <?php
 $MyDatabase = require_once("class.php");
-var_dump($MyDatabase);
 if(!empty($_POST["genre"])&&!empty($_POST["nom"])&&!empty($_POST["prenom"])&&!empty($_POST["email"])&&!empty($_POST["birthdate"])&&!empty($_POST["password"])&&!empty($_POST["loisir"])&&!empty($_POST["code_postal"])){
     $genre = $_POST["genre"];
     $nom = $_POST["nom"];
@@ -17,7 +16,7 @@ if(!empty($_POST["genre"])&&!empty($_POST["nom"])&&!empty($_POST["prenom"])&&!em
             header("Location: ../view/register.php");
             exit;
         }else{
-           $MyDatabase->register_user(['email'=>$email,'nom'=>$nom,'prenom'=>$prenom,'genre'=>$genre,'birthdate'=>$birthdate,'password'=>$password,'code_postal'=>$code_postal]);
+            $MyDatabase->register_user(['email'=>$email,'nom'=>$nom,'prenom'=>$prenom,'genre'=>$genre,'birthdate'=>$birthdate,'password'=>$password,'code_postal'=>$code_postal]);
             $id_user = $MyDatabase->statement_id($email);
             $MyDatabase->register_loisir(['id_user'=>$id_user, 'loisir'=>$loisir]);
             header("Location: ../view/login.php");

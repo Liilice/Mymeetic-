@@ -6,7 +6,6 @@ class MyDatabase {
     private PDOStatement $statement_id;
     private PDOStatement $statementLoisir;
 
-    private PDOStatement $statement_user;
     private PDOStatement $statementSession;
 
     private PDOStatement $statement_logout;
@@ -26,7 +25,6 @@ class MyDatabase {
         $this->statement_id = $pdo->prepare("SELECT id FROM user WHERE email LIKE :email;");
         $this->statementLoisir = $pdo->prepare("INSERT INTO user_loisir(id_user, name) VALUES(:id_user, :loisir);");
         
-        // $this->statement_user = $pdo->prepare("SELECT * FROM user WHERE email LIKE :email;") ;     
         $this->statementSession = $pdo->prepare("INSERT INTO session VALUES (DEFAULT, :iduser);");      
 
         $this->statement_logout = $pdo->prepare("SELECT * FROM session WHERE id_session = :sessionId;");
@@ -36,16 +34,14 @@ class MyDatabase {
         $this->statement_update_password = $pdo->prepare("UPDATE user SET password = :hashedPassword WHERE id = :session_id_user;");
         $this->statement_update_postal = $pdo->prepare("UPDATE user SET code_postal = :code_postal WHERE id = :session_id_user;");
         $this->statement_update_loisir = $pdo->prepare("UPDATE user_loisir SET name = :loisir WHERE id_user = :session_id_user");
-
-        // $this->statement_loisir = $pdo->prepare("INSERT INTO user_loisir(id_user, name) VALUES(:session_id_user, :loisir);");
     }
-    public function check_email($email)
+    public function check_email($email): array
     {
         $this->statementCheck->bindValue(':email', $email);
         $this->statementCheck->execute();
         return $this->statementCheck->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function register_user($user)
+    public function register_user($user): void
     {
         $hashedPassword = password_hash($user['password'], PASSWORD_ARGON2I);
         $this->statement_create_user->bindValue(':email', $user['email']);
@@ -58,49 +54,47 @@ class MyDatabase {
         $this->statement_create_user->execute();
         return;
     }
-    public function statement_id($email)
+    public function statement_id($email): array
     {
         $this->statement_id->bindValue(':email', $email);
         $this->statement_id->execute();
         return $this->statement_id->fetchAll(PDO::FETCH_ASSOC)[0]["id"];
     }
-    public function register_loisir($loisir)
+    public function register_loisir($loisir): void
     {
         $this->statementLoisir->bindValue(':id_user', $loisir['id_user']);
         $this->statementLoisir->bindValue(':loisir', $loisir['loisir']);
         $this->statementLoisir->execute();
         return;
     }
-    public function login($user)
+    public function login($user): void
     {
         $this->statementSession->bindValue(':iduser', $user);
         $this->statementSession->execute();
         $sessionId = $this->pdo->lastInsertId();
-        // $signature = hash_hmac('sha256', $sessionId, 'xiao long bao hao chi');
         setcookie('session',$sessionId, time() + 60 * 60 * 24 * 30, "/", "", false, true);
-        // setcookie('signature',$signature, time() + 60 * 60 * 24 * 30, "/", "", false, false);
         return;
     }
-    public function logout($sessionId)
+    public function logout($sessionId): array
     {
         $this->statement_logout->bindValue(':sessionId', $sessionId);   
         $this->statement_logout->execute();
         return $this->statement_logout->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function get_session_id_user($sessionId)
+    public function get_session_id_user($sessionId): array
     {
         $this->statement_update_info->bindValue(':sessionId', $sessionId);   
         $this->statement_update_info->execute();
         return $this->statement_update_info->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function update_email($session_id_user, $user)
+    public function update_email($session_id_user, $user): void
     {
         $this->statement_update_email->bindValue(':email', $user['email']);   
         $this->statement_update_email->bindValue(':session_id_user', $session_id_user);   
         $this->statement_update_email->execute();
         return;
     }
-    public function update_password($session_id_user, $user)
+    public function update_password($session_id_user, $user): void
     {
         $hashedPassword = password_hash($user['password'], PASSWORD_ARGON2ID);
         $this->statement_update_password->bindValue(':hashedPassword', $hashedPassword);   
@@ -108,14 +102,14 @@ class MyDatabase {
         $this->statement_update_password->execute();
         return;
     }
-    public function update_postal($session_id_user, $user)
+    public function update_postal($session_id_user, $user): void
     {
         $this->statement_update_postal->bindValue(':code_postal', $user['code_postal']);   
         $this->statement_update_postal->bindValue(':session_id_user', $session_id_user);   
         $this->statement_update_postal->execute();
         return;
     }
-    public function update_loisir($session_id_user, $user)
+    public function update_loisir($session_id_user, $user): void
     {
         $this->statement_update_loisir->bindValue(':loisir', $user['loisir']);   
         $this->statement_update_loisir->bindValue(':session_id_user', $session_id_user);   

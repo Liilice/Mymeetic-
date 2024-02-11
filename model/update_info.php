@@ -1,5 +1,4 @@
 <?php
-// $pdo = require_once("database.php");
 $MyDatabase = require_once("class.php");
 
 if(!empty($_POST["email"])&&!empty($_POST["password"])&&!empty($_POST["loisir"])&&!empty($_POST["code_postal"])){
@@ -8,7 +7,6 @@ if(!empty($_POST["email"])&&!empty($_POST["password"])&&!empty($_POST["loisir"])
     $loisir = $_POST["loisir"];
     $code_postal = $_POST["code_postal"];
     $sessionId = $_COOKIE['session'];
-    echo $sessionId;
     if(!empty($email)&&!empty($password)&&!empty($loisir)&&!empty($code_postal)&&!empty($sessionId)){
         $resultat_check = $MyDatabase->check_email($email);
         if($resultat_check[0]["email"] == $email){
@@ -25,5 +23,5 @@ if(!empty($_POST["email"])&&!empty($_POST["password"])&&!empty($_POST["loisir"])
             header("Location: ../view/homepage.php");
             exit;
         }
-}
+    }
 }

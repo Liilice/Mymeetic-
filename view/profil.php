@@ -47,17 +47,14 @@
                         <li>Email : <?=$currentUser[0]["email"]?></li>
                         <li>Date de naissance : <?=$currentUser[0]["date_naissance"]?></li>
                         <li>Code Postal : <?=$currentUser[0]["code_postal"]?></li>
-                        <li>Loisir :
-                            <ul>
-                                <?php foreach($currentUser as $key => $value) :?>
-                                    <?php foreach($value as $ke => $valu) :?>
-                                        <?php if($ke === "name") :?>
-                                            <li class="end"><?=$valu?></li>
-                                        <?php endif; ?>
-                                    <?php endforeach; ?>
-                                <?php endforeach; ?>
-                            </ul>
-                        </li>
+                        <?php foreach($currentUser as $key => $value) :?>
+                            <?php foreach($value as $ke => $valu) :?>
+                                <?php if($ke === "name") :?>
+                                    <li>Loisir : <?=$valu?></li>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endforeach; ?>
+                        <li><button id="delete" class="btn btn-delete">Supprimer le compte definitivement</button></li>
                     </ul>
                 </div>
             </div>
@@ -85,8 +82,6 @@
                     </div>
                     <p class="textError" id="loisirr"></p>
                     <input type="submit" name="envoyer" class="btn btn-primary" id="submit" value="Update" required>
-                    <!-- <button type="button" class="btn btn-primary" id="submit">Update</button> -->
-                    <!-- <button type="button" class="btn btn-default">Cancel</button> -->
                 </form>
             </div>
         </div>
