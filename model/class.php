@@ -15,7 +15,7 @@ class MyDatabase {
     private PDOStatement $statement_update_email;
     private PDOStatement $statement_update_password;
     private PDOStatement $statement_update_postal;
-    private PDOStatement $statement_loisir;
+    private PDOStatement $statement_update_loisir;
 
     function __construct(private PDO $pdo)
     {
@@ -35,7 +35,9 @@ class MyDatabase {
         $this->statement_update_email = $pdo->prepare("UPDATE user SET email = :email WHERE id = :session_id_user;");
         $this->statement_update_password = $pdo->prepare("UPDATE user SET password = :hashedPassword WHERE id = :session_id_user;");
         $this->statement_update_postal = $pdo->prepare("UPDATE user SET code_postal = :code_postal WHERE id = :session_id_user;");
-        $this->statement_loisir = $pdo->prepare("INSERT INTO user_loisir(id_user, name) VALUES(:session_id_user, :loisir);");
+        $this->statement_update_loisir = $pdo->prepare("UPDATE user_loisir SET name = :loisir WHERE id_user = :session_id_user");
+
+        // $this->statement_loisir = $pdo->prepare("INSERT INTO user_loisir(id_user, name) VALUES(:session_id_user, :loisir);");
     }
     public function check_email($email)
     {
@@ -113,11 +115,11 @@ class MyDatabase {
         $this->statement_update_postal->execute();
         return;
     }
-    public function add_loisir($session_id_user, $user)
+    public function update_loisir($session_id_user, $user)
     {
-        $this->statement_loisir->bindValue(':session_id_user', $session_id_user);   
-        $this->statement_loisir->bindValue(':loisir', $user['loisir']);   
-        $this->statement_loisir->execute();
+        $this->statement_update_loisir->bindValue(':loisir', $user['loisir']);   
+        $this->statement_update_loisir->bindValue(':session_id_user', $session_id_user);   
+        $this->statement_update_loisir->execute();
         return;
     }
 }

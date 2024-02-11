@@ -21,7 +21,7 @@ if(!empty($_POST["email"])&&!empty($_POST["password"])&&!empty($_POST["loisir"])
             $MyDatabase->update_email($session_id_user, ['email'=>$email]);
             $MyDatabase->update_password($session_id_user, ['password'=>$password]);
             $MyDatabase->update_postal($session_id_user, ['code_postal'=>$code_postal]);
-            $MyDatabase->add_loisir($session_id_user, ['loisir'=>$loisir]);
+            $MyDatabase->update_loisir($session_id_user, ['loisir'=>$loisir]);
             header("Location: ../view/homepage.php");
             exit;
         }

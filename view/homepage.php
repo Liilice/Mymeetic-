@@ -25,13 +25,18 @@
                 </li>
             </ul>
         </div>
-        <form action="">
-            <input type="search" name="Genre" id="Genre">
-            <input type="search" name="Localisation" id="Localisation">
-            <input type="search" name="Loisir" id="Loisir">
-            <input type="search" name=" Tranche d’âge" id="age">
+        <form action="../model/match.php" method="POST" id="search_form">
+            <input type="search" name="genre" id="genre" placeholder="genre">
+            <input type="search" name="localisation" id="localisation" placeholder="localisation">
+            <input type="search" name="loisir" id="loisir" placeholder="loisir">
+            <input type="search" name="age" id="age" placeholder="age">
             <input type="submit" name="envoyer" class="btn" id="submit" value="Rechercher" required>
         </form>
+        <div class="carousel">
+            <div class="carousel-container"></div>
+            <button class="prev btn">Précédent</button>
+            <button class="next btn">Suivant</button>
+        </div>
     </main>
 </body>
 </html>
